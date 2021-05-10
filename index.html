@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Covid-19 Tracker and Resources </title>
+
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+   integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE="crossorigin="anonymous"></script> 
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="./js/countries.js"></script>
+   <script
+   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+   integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+   crossorigin="anonymous"
+ ></script>
+ <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+ <script src="./js/cities.js"></script>
+ 
+   <link rel="stylesheet" href="./css/style.css">
+  
+</head>
+<body>
+
+<!---******** nav bar *********---->
+
+<nav class="navbar navbar-expand-lg nav_style p-3">
+  <a class="navbar-brand pl-5 " href="#">COVID-19</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto pr-5 text-capitalize">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#aboutid">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#sympid">Symptoms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#preventid">Prevention</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#resourcesid">Resources</a>
+      </li>
+      
+      
+      
+      
+    </ul>
+    
+  </div>
+</nav>
+
+<!---****Main header****--->
+
+
+
+<div class="main_header">
+    <div class="row w-100 h-100">
+       <div class="col-lg-5 col-md-5 col-12 order-lg-1 order-2">
+              <div class="leftside w-100 h-100 d-flex justify-content-center 
+              align-items-center">
+                 <img src="images/eaksath.png" width="300" height= "300">
+              </div>
+       </div>
+
+       <div class="col-lg-7 col-md-7 col-12 order-lg-2 order-1">
+              <div class="rightside w-100 h-100 d-flex justify-content-center 
+              align-items-center">
+                 <h1> Let's Stay Safe & Fight Together Against Cor<span class="corona_rot">
+                  <img src="images/corona.png" width="75" height="75">
+                 </span>na Virus</h1>
+              </div>
+       </div>
+
+
+    </div>
+</div>
+
+<!--------********************* corona latest update **********--->
+
+<section class="corona_update container-fluid">
+   <div class="mb-3">
+      <h3 class="text-uppercase text-center">covid-19 live update of the world</h3> 
+   </div>
+
+<main>
+   <div class="stats">
+     <div class="latest-report">
+       <div class="country">
+         <div class="name">Loading...</div>
+         <div class="change-country">change</div>
+         <div class="search-country hide">
+           <div class="search-box">
+             <input
+               type="text"
+               id="search-input"
+               placeholder="Search Country..."
+             />
+             <img class="close" src="./Images/close.svg" alt="" />
+           </div>
+           <div class="country-list"></div>
+         </div>
+       </div>
+       <div class="total-cases">
+         <div class="title">Total Cases</div>
+         <div class="value">0</div>
+         <div class="new-value">+0</div>
+       </div>
+       <div class="recovered">
+         <div class="title">Recovered</div>
+         <div class="value">0</div>
+         <div class="new-value">+0</div>
+       </div>
+       <div class="deaths">
+         <div class="title">Deaths</div>
+         <div class="value">0</div>
+         <div class="new-value">+0</div>
+       </div>
+     </div>
+     <div class="chart">
+       <canvas id="axes_line_chart"></canvas>
+     </div>
+   </div>
+ </main>
+
+<!--***************about section***************---> 
+
+<div class="container-fluid sub_section pt-5 pb-5" id="aboutid">
+    <div class="section_header text-center mb-5 mt-4">
+       <h1> About COVID-19 </h1>
+     </div>  
+
+     <div class="row">
+         <div class="col-lg-5 col-md-6 col-12">
+            <img src="images/aboutcorona.png" class="img-fluid">
+         </div>
+
+     <div class="col-lg-6 col-md-6 col-12">
+         <h2>What is COVID-19 (Corona-Virus)</h2>
+         <p>COVID-19 is the infectious disease caused by the 
+         most recently discovered coronavirus. 
+         This new virus and disease were unknown before the outbreak 
+         began in Wuhan, China, in December 2019.</p>
+         <p>Coronaviruses are a large family of
+          viruses which may cause illness in animals or humans.
+           In humans, several coronaviruses are known to cause respiratory 
+           infections ranging from the common cold to more severe diseases
+            such as Middle East Respiratory Syndrome (MERS) and Severe Acute 
+            Respiratory Syndrome (SARS). The most recently discovered coronavirus 
+            causes coronavirus disease COVID-19. </p>
+     </div>
+
+     </div>
+
+</div>
+
+
+<!--- ////////////// Corona Symptoms ////////////-->
+
+<div class="container-fluid pt-5 pb-5" id="sympid">
+    <div class="section_header text-center mb-5 mt-4">
+       <h1> Coronavirus Symptoms </h1>
+     </div>  
+
+     <div class="container">
+       <div class="row">
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/cough.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> cough</figcaption>
+             <figure>
+          </div> 
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/runnynose.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> runny-nose</figcaption>
+             <figure>
+          </div> 
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/fever.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> fever</figcaption>
+             <figure>
+          </div> 
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/cold.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> cold</figcaption>
+             <figure>
+          </div> 
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/tiredness.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> tiredness</figcaption>
+             <figure>
+          </div> 
+          <div class="col-lg-4 col-md-4 col-12 mt-5">
+             <figure class="text-center">
+             <img src="images/breathing.png" class="img-fluid" width="120"
+             height="120">
+             <figcaption> difficulty breathing ( severe case )</figcaption>
+             <figure>
+          </div> 
+       </div>
+     </div>
+
+</div>
+
+<!--***************Prevention agains coronavirus***************---> 
+
+<div class="container-fluid sub_section pt-5 pb-5" id="preventid">
+    <div class="section_header text-center mb-5 mt-4">
+       <h1> 6 Steps Prevention Against Corona Virus </h1>
+     </div>  
+
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/handwash.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>Wash your hands
+                    regularly for 20 seconds, 
+                    with soap and water or 
+                    alcohol-based hand rub
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/covernose.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>Cover your nose and mouth 
+                    with a disposable 
+                    tissue or flexed elbow when you 
+                    cough or sneeze
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/socialdistancing.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>Avoid close contact 
+                    (1 meter or 3 feet) with 
+                    people who are unwell
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/stayhome.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>Stay home and self isolate 
+                    from others in the household 
+                    if you feel unwell
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/tv.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>Stay informed by 
+                    watching news & follow 
+                    the recommended practices
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+
+           <div class="col-lg-4 col-md-4 col-12 mt-5">
+              <div class="row">
+                 <div class="col-lg-4 col-md-4 col-12">
+                 <figure class="text-center">
+                 <img src="images/symptoms.png" class="img-fluid" width="90"
+                  height="90">
+                  <figure>
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 col-12">
+                 <p>If you have fever, 
+                    cough and difficulty breathing,
+                    seek medical care early
+                 </p>
+                 </div>
+               </div>
+           </div>
+
+          
+        </div>
+     </div>
+
+</div>
+
+<!------Resources------------->
+
+<!--<div class="resources_top text-center mb-5 mt-4" id="resourcesid">
+  <h1> TWITTER Search for COVID-19 Resources </h1>
+  <h5> Search your state / city and select from the given options. </h5><br>
+  <h6> Find latest Resources in real Time on Twitter. </h6><br>
+</div> -->
+
+
+<!--<form class="container ">
+<div class="form-group row">
+
+    <label for="text" class="col-sm-2 col-form-label"><b>STATE<br>&<br>CITY</b></label>
+    <div class="col-sm-10 ">
+      
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control col-6" required></select>
+      <select id ="state" class="form-control col-6" required></select>
+      <script language="javascript">print_state("sts");</script>
+      
+      
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-sm-2 col-form-label"><b>CITY</b></label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="select your city">
+    </div>
+  </div> 
+  <legend class="col-form-label text-center col-sm-12 pt-0"></legend><b>RESOURCES</b></legend>
+  <legend class="col-form-label col-sm-12 pt-0">Select from the given options</legend>
+  <fieldset class="form-group" id="facility">
+    <div class="row">
+      
+      <div class="col-sm-10 ">
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox " type="checkbox" name="oxygen" id="gridRadios1" value="option1">
+          <label class="form-check-label" for="gridRadios1">
+            Oxygen
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="beds" id="gridRadios2" value="option2" >
+          <label class="form-check-label" for="gridRadios2">
+            Beds
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="remdesivir" id="gridRadios3" value="option3">
+          <label class="form-check-label" for="gridRadios3">
+            Remdesivir
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="tocilizumab" id="gridRadios4" value="option4">
+          <label class="form-check-label" for="gridRadios4">
+            Tocilizumab
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="plasma" id="gridRadios5" value="option5">
+          <label class="form-check-label" for="gridRadios5">
+            Plasma
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="ventilator" id="gridRadios6" value="option6">
+          <label class="form-check-label" for="gridRadios6">
+            Ventilator
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="ICU" id="gridRadios7" value="option7">
+          <label class="form-check-label" for="gridRadios7">
+            ICU
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="fabiflu" id="gridRadios8" value="option8">
+          <label class="form-check-label" for="gridRadios8">
+            Fabiflu
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="favipiravir" id="gridRadios9" value="option9">
+          <label class="form-check-label" for="gridRadios9">
+            Favipiravir
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="vaccination" id="gridRadios10" value="option10">
+          <label class="form-check-label" for="gridRadios10">
+            Vaccination
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="grocery" id="gridRadios11" value="option11">
+          <label class="form-check-label" for="gridRadios11">
+           Grocery
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input custom-checkbox" type="checkbox" name="tiffin" id="gridRadios12" value="option12">
+          <label class="form-check-label" for="gridRadios12">
+            Tiffin
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  
+  <div class="form-group row list-inline-item">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary" id="submit">Search</button>
+      <button type="clear" class="btn btn-outline-primary" id="clear">Clear</button>
+    </div>
+  </div>
+</form> -->
+
+
+<section class="plasma-space">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 home-cards donor-area">
+      <h1 style="text-align: center">TWITTER SEARCH FOR COVID</h1>
+    </div>
+    <div
+      class="col-lg-12 col-md-12 col-sm-12 home-cards resources-form-heading"
+    >
+      <div class="resources-text-form">
+        <h5 style="text-align: center">Search your state / city and select from the given options.</h5>
+
+        <h6 style="text-align: center">
+          Find latest Resources in real Time on Twitter.
+        </h6>
+      </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 col-sm-6 home-cards">
+      <form action="http://127.0.0.1:3000/tweet" method="post" >
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-search"></i
+          ></span>
+          <select
+            onchange="print_city('state', this.selectedIndex);"
+            id="sts"
+            name="state"
+            class="form-control"
+            
+          ></select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon2"
+            ><i class="fas fa-street-view"></i
+          ></span>
+          <select id ="state" name="city" class="form-control" ></select>
+        </div>
+
+        <!-- <------------------------------CHECK BOX------------------------------------------->
+
+        <p style="text-align: center; margin: 27px auto 0 auto">
+          <b>Select from given options.</b>
+        </p>
+
+        <div
+          class="row col-lg-12 col-md-12 col-sm-6 home-cards"
+          style="padding-top: 0; padding-bottom: 0;"
+        >
+          <!-- <--------------first----------------->
+          <div
+            class="col-lg-6 col-md-6 col-sm-4 col-5 home-cards"
+            style="padding: 10px 20px 20px 20px"
+          >
+            <div
+              style="width: fit-content; margin-left: auto; margin-right: auto"
+            >
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="oxygen"
+                  id="flexCheckDefault1"
+                  name="oxygen"
+                />
+                <label class="form-check-label" for="flexCheckDefault1">
+                  Oxygen
+                </label>
+              </div>
+
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="beds"
+                  id="flexCheckDefault11"
+                  name="beds"
+                />
+                <label class="form-check-label" for="flexCheckDefault11"
+                  >Beds</label
+                >
+              </div>
+
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Remdesivir"
+                  id="flexCheckDefault111"
+                  name="Remdesivir"
+                />
+                <label class="form-check-label" for="flexCheckDefault111">
+                  Remdesivir
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Tocilizumab"
+                  id="flexCheckDefault1111"
+                  name="Tocilizumab"
+                />
+                <label class="form-check-label" for="flexCheckDefault1111">
+                  Tocilizumab
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Plasma"
+                  id="flexCheckDefault11111"
+                  name="Plasma"
+                />
+                <label class="form-check-label" for="flexCheckDefault11111">
+                  Plasma
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Grocery"
+                  id="flexCheckDefault2"
+                  name="Grocery"
+                />
+                <label class="form-check-label" for="flexCheckDefault2"
+                  >Grocery
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+<---------------------------2ns---------------------->
+          <div
+            class="col-lg-6 col-md-6 col-sm-6 col-5 home-cards"
+            style="padding: 10px 20px 20px 20px"
+          >
+            <div
+              style="width: fit-content; margin-left: auto; margin-right: auto"
+            >
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Ventilator"
+                  id="flexCheckDefault22"
+                  name="Ventilator"
+                />
+                <label class="form-check-label" for="flexCheckDefault22">
+                  Ventilator
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="ICU"
+                  id="flexCheckDefault222"
+                  name="ICU"
+                />
+                <label class="form-check-label" for="flexCheckDefault222">
+                  ICU
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Fabiflu"
+                  id="flexCheckDefault3"
+                  name="Fabiflu"
+                />
+                <label class="form-check-label" for="flexCheckDefault3">
+                  Fabiflu
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Favipiravir"
+                  id="flexCheckDefault333"
+                  name="Favipiravir"
+                />
+                <label class="form-check-label" for="flexCheckDefault333">
+                  Favipiravir
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Vaccination"
+                  id="flexCheckDefault4"
+                  name="Vaccination"
+                />
+                <label class="form-check-label" for="flexCheckDefault4">
+                  Vaccination
+                </label>
+              </div>
+              <div class="form-check twitter-checkbx">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Tiffin"
+                  id="flexCheckDefault44"
+                  name="Tiffin"
+                />
+                <label class="form-check-label" for="flexCheckDefault44">
+                  Tiffin
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <div
+            class="col-lg-6 col-md-6 col-sm-12 col-12"
+            style="margin: 0 auto 0 auto; width: fit-content"
+          >
+            <button
+              
+              class="btn btn-primary"
+              type="submit"
+              >Search</button
+            >
+            &nbsp;
+            <button type="reset" class="btn btn-outline-primary">Clear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    </div>
+  </div>
+</section>
+<script language="javascript">
+  print_state("sts");
+</script>
+
+
+<!--------Top cursor-------->
+<div class="container scrolltop float-right pr-5">
+<button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>
+</div>
+<!---////////////footer/////////////////-->
+
+<footer class="mt-5">
+   <div class="footer_style text-white text-center container-fluid">
+      <p>copyright by Sannidhya_Singh</p>
+   </div>
+</footer>
+
+
+<script type="text/javascript">
+
+  //Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+   
+
+</script>
+<script 
+     language="JavaScript"
+      src="http://www.geoplugin.net/javascript.gp"
+      type="text/javascript"
+    ></script>
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>
+
