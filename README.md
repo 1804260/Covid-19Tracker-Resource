@@ -9,9 +9,9 @@ This tracker will be updated regularly, as new data are released.
 
 -> About Twitter search:-
 
- . “All across the country, people are using Twitter to find the latest information and access to resources right now. As this people’s movement unfolds, 
+ 1. “All across the country, people are using Twitter to find the latest information and access to resources right now. As this people’s movement unfolds, 
  we wanted to remind you of some of the features that could help you find what you’re looking for faster #Covid19IndiaHelp,” Twitter India tweeted.
- . Twitter’s new advanced search option can “help you filter for fields like a specific hashtag, time period, or Tweets from a particular account,” 
+ 2. Twitter’s new advanced search option can “help you filter for fields like a specific hashtag, time period, or Tweets from a particular account,” 
  thereby helping you tailor your search and narrow down on tweets that will be the most helpful for you.
- . It also helps you search for tweets based on particular words, exact phrases (in case you are searching for a particular medicine or injection) and language.
+ 3. It also helps you search for tweets based on particular words, exact phrases (in case you are searching for a particular medicine or injection) and language.
  
